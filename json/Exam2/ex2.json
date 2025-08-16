@@ -1,0 +1,276 @@
+{
+  "contest": {
+    "id": "Exam2",
+    "contestName": "Cuộc thi Lập trình Mùa xuân 2025 - Đề 2",
+    "date": "22 Tháng 1, 2025",
+    "numberOfTeams": 248,
+    "problemStatus": {
+      "solved": 0,
+      "attempted": 0,
+      "wrongAnswer": 0,
+      "unattempted": 12
+    }
+  },
+  "problems": [
+    {
+      "id": "A2",
+      "name": "Số gương",
+      "description": "Tìm số nhỏ nhất lớn hơn N mà đảo ngược cũng là số nguyên tố.",
+      "points": 10
+    },
+    {
+      "id": "B2",
+      "name": "Xâu đối xứng",
+      "description": "Kiểm tra xem một xâu có thể trở thành đối xứng nếu xóa tối đa một ký tự.",
+      "points": 10
+    },
+    {
+      "id": "C2",
+      "name": "Tổng không liền kề",
+      "description": "Tìm tổng lớn nhất của các phần tử không liền kề trong mảng.",
+      "points": 10
+    },
+    {
+      "id": "D2",
+      "name": "Sắp xếp theo chữ số",
+      "description": "Sắp xếp mảng theo tổng các chữ số của từng phần tử.",
+      "points": 10
+    },
+    {
+      "id": "E2",
+      "name": "Mã hóa RLE",
+      "description": "Thực hiện mã hóa Run-Length Encoding cho chuỗi.",
+      "points": 10
+    },
+    {
+      "id": "F2",
+      "name": "Tập con có tổng bằng K",
+      "description": "Đếm số lượng tập con của mảng có tổng bằng K.",
+      "points": 10
+    },
+    {
+      "id": "G2",
+      "name": "Cây nhị phân chuẩn",
+      "description": "Kiểm tra xem một cây nhị phân đã cho có phải là cây nhị phân tìm kiếm hợp lệ không.",
+      "points": 10
+    },
+    {
+      "id": "H2",
+      "name": "Dãy đẹp",
+      "description": "Tìm độ dài dãy con tăng dài nhất.",
+      "points": 10
+    },
+    {
+      "id": "I2",
+      "name": "Số hạnh phúc",
+      "description": "Kiểm tra xem một số có phải là số hạnh phúc hay không.",
+      "points": 10
+    },
+    {
+      "id": "J2",
+      "name": "Ký tự xuất hiện nhiều nhất",
+      "description": "Tìm ký tự xuất hiện nhiều nhất và vị trí đầu tiên của nó.",
+      "points": 10
+    },
+    {
+      "id": "K2",
+      "name": "Phân phối công việc",
+      "description": "Tối ưu hóa phân phối công việc cho 2 người để chênh lệch nhỏ nhất.",
+      "points": 10
+    },
+    {
+      "id": "L2",
+      "name": "Ma trận xoắn ốc",
+      "description": "In ra các phần tử của ma trận theo thứ tự xoắn ốc.",
+      "points": 10
+    }
+  ],
+  "problemDetails": [
+    {
+      "id": "A2",
+      "name": "Số gương",
+      "problemStatement": "Một số nguyên dương được gọi là số gương nếu nó và số đảo ngược của nó đều là số nguyên tố. Hãy tìm số gương nhỏ nhất lớn hơn N.",
+      "inputFormat": "Một số nguyên dương N (1 ≤ N ≤ 10^5).",
+      "outputFormat": "In ra số gương nhỏ nhất lớn hơn N.",
+      "constraints": "1 ≤ N ≤ 10^5",
+      "sampleInput": [
+        "31"
+      ],
+      "sampleOutput": [
+        "37"
+      ],
+      "explanation": "37 là số nguyên tố, đảo ngược là 73 cũng là số nguyên tố."
+    },
+    {
+      "id": "B2",
+      "name": "Xâu đối xứng",
+      "problemStatement": "Cho một chuỗi S. Hãy kiểm tra xem có thể làm cho chuỗi trở thành đối xứng bằng cách xóa tối đa một ký tự.",
+      "inputFormat": "Một chuỗi S chỉ gồm chữ cái thường (1 ≤ |S| ≤ 10^5).",
+      "outputFormat": "In YES nếu có thể, ngược lại in NO.",
+      "constraints": "1 ≤ |S| ≤ 10^5",
+      "sampleInput": [
+        "abca"
+      ],
+      "sampleOutput": [
+        "YES"
+      ],
+      "explanation": "Xóa 'b' hoặc 'c' để được 'aca' hoặc 'aba' là đối xứng."
+    },
+    {
+      "id": "C2",
+      "name": "Tổng không liền kề",
+      "problemStatement": "Cho một mảng số nguyên dương. Tìm tổng lớn nhất của các phần tử sao cho không có 2 phần tử nào liền kề nhau trong mảng.",
+      "inputFormat": "Dòng đầu là số nguyên N. Dòng tiếp theo gồm N số nguyên dương.",
+      "outputFormat": "In ra tổng lớn nhất thỏa điều kiện.",
+      "constraints": "1 ≤ N ≤ 10^5; 1 ≤ Ai ≤ 10^4",
+      "sampleInput": [
+        "5",
+        "3 2 7 10 12"
+      ],
+      "sampleOutput": [
+        "22"
+      ],
+      "explanation": "Chọn 3 + 7 + 12 = 22."
+    },
+    {
+      "id": "D2",
+      "name": "Sắp xếp theo chữ số",
+      "problemStatement": "Cho mảng số nguyên. Sắp xếp mảng theo tổng các chữ số của mỗi số. Nếu hai số có tổng chữ số bằng nhau, giữ nguyên thứ tự ban đầu.",
+      "inputFormat": "Dòng đầu là N. Dòng sau là N số nguyên.",
+      "outputFormat": "In ra mảng sau khi sắp xếp.",
+      "constraints": "1 ≤ N ≤ 10^5; 0 ≤ Ai ≤ 10^9",
+      "sampleInput": [
+        "4",
+        "23 11 34 52"
+      ],
+      "sampleOutput": [
+        "11 23 34 52"
+      ],
+      "explanation": "Tổng chữ số: 5, 4, 7, 7 → thứ tự: 11 23 34 52."
+    },
+    {
+      "id": "E2",
+      "name": "Mã hóa RLE",
+      "problemStatement": "Thực hiện mã hóa chuỗi đầu vào theo kiểu Run-Length Encoding (RLE).",
+      "inputFormat": "Một chuỗi S chỉ gồm chữ cái viết thường (1 ≤ |S| ≤ 10^6).",
+      "outputFormat": "In ra chuỗi RLE.",
+      "constraints": "1 ≤ |S| ≤ 10^6",
+      "sampleInput": [
+        "aaabbcaaa"
+      ],
+      "sampleOutput": [
+        "a3b2c1a3"
+      ],
+      "explanation": "3 chữ 'a', 2 'b', 1 'c', 3 'a'."
+    },
+    {
+      "id": "F2",
+      "name": "Tập con có tổng bằng K",
+      "problemStatement": "Cho mảng gồm các số nguyên dương và số nguyên K. Hãy đếm số tập con có tổng đúng bằng K.",
+      "inputFormat": "Dòng đầu là hai số N và K. Dòng sau là N số nguyên.",
+      "outputFormat": "In ra số lượng tập con thỏa điều kiện.",
+      "constraints": "1 ≤ N ≤ 30; 1 ≤ Ai ≤ 1000; 1 ≤ K ≤ 10^4",
+      "sampleInput": [
+        "4 5",
+        "1 2 3 4"
+      ],
+      "sampleOutput": [
+        "2"
+      ],
+      "explanation": "Hai tập con: [2,3] và [1,4] có tổng 5."
+    },
+    {
+      "id": "G2",
+      "name": "Cây nhị phân chuẩn",
+      "problemStatement": "Kiểm tra xem cây nhị phân đã cho có phải là cây nhị phân tìm kiếm (BST) hợp lệ hay không.",
+      "inputFormat": "Cho N dòng mô tả cây: mỗi dòng chứa giá trị node, giá trị left, giá trị right. Nếu left hoặc right là null thì ghi là -1.",
+      "outputFormat": "In YES nếu là BST, ngược lại in NO.",
+      "constraints": "1 ≤ N ≤ 10^5; |giá trị node| ≤ 10^9",
+      "sampleInput": [
+        "3",
+        "10 5 15",
+        "5 -1 -1",
+        "15 -1 -1"
+      ],
+      "sampleOutput": [
+        "YES"
+      ]
+    },
+    {
+      "id": "H2",
+      "name": "Dãy đẹp",
+      "problemStatement": "Cho một dãy số nguyên. Hãy tìm độ dài lớn nhất của một dãy con tăng dần (không nhất thiết liên tiếp).",
+      "inputFormat": "Dòng đầu N. Dòng sau là N số nguyên.",
+      "outputFormat": "In ra độ dài dãy con tăng dài nhất.",
+      "constraints": "1 ≤ N ≤ 10^5; |Ai| ≤ 10^9",
+      "sampleInput": [
+        "6",
+        "5 1 6 2 3 7"
+      ],
+      "sampleOutput": [
+        "4"
+      ],
+      "explanation": "Dãy con: 1 2 3 7 hoặc 1 2 3 6."
+    },
+    {
+      "id": "I2",
+      "name": "Số hạnh phúc",
+      "problemStatement": "Một số được gọi là hạnh phúc nếu liên tục thay thế nó bằng tổng bình phương các chữ số của nó và cuối cùng thu được số 1. Kiểm tra xem một số có phải là số hạnh phúc không.",
+      "inputFormat": "Một số nguyên dương N (1 ≤ N ≤ 10^9).",
+      "outputFormat": "In YES nếu là số hạnh phúc, ngược lại NO.",
+      "constraints": "1 ≤ N ≤ 10^9",
+      "sampleInput": [
+        "19"
+      ],
+      "sampleOutput": [
+        "YES"
+      ]
+    },
+    {
+      "id": "J2",
+      "name": "Ký tự xuất hiện nhiều nhất",
+      "problemStatement": "Cho chuỗi S. Hãy tìm ký tự xuất hiện nhiều nhất. Nếu có nhiều ký tự cùng xuất hiện nhiều nhất, chọn ký tự xuất hiện đầu tiên.",
+      "inputFormat": "Chuỗi S có độ dài ≤ 10^5 gồm chữ cái thường.",
+      "outputFormat": "In ra ký tự đó.",
+      "constraints": "1 ≤ |S| ≤ 10^5",
+      "sampleInput": [
+        "ababc"
+      ],
+      "sampleOutput": [
+        "a"
+      ]
+    },
+    {
+      "id": "K2",
+      "name": "Phân phối công việc",
+      "problemStatement": "Cho mảng thời gian thực hiện N công việc. Hãy chia đều cho 2 người sao cho chênh lệch tổng thời gian là nhỏ nhất.",
+      "inputFormat": "Dòng đầu là số N. Dòng sau là N số nguyên.",
+      "outputFormat": "In ra độ chênh lệch nhỏ nhất.",
+      "constraints": "1 ≤ N ≤ 20; 1 ≤ Ai ≤ 1000",
+      "sampleInput": [
+        "4",
+        "1 2 3 9"
+      ],
+      "sampleOutput": [
+        "3"
+      ]
+    },
+    {
+      "id": "L2",
+      "name": "Ma trận xoắn ốc",
+      "problemStatement": "Cho ma trận kích thước M x N. In ra các phần tử theo thứ tự xoắn ốc bắt đầu từ trái trên.",
+      "inputFormat": "Dòng đầu gồm hai số M và N. M dòng tiếp theo là ma trận.",
+      "outputFormat": "In ra các phần tử cách nhau bởi dấu cách.",
+      "constraints": "1 ≤ M, N ≤ 100",
+      "sampleInput": [
+        "3 3",
+        "1 2 3",
+        "4 5 6",
+        "7 8 9"
+      ],
+      "sampleOutput": [
+        "1 2 3 6 9 8 7 4 5"
+      ]
+    }
+  ]
+}

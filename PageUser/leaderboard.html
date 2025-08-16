@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Arena - Leader Board</title>
+    <link rel="stylesheet" href="../CsForPaseUser/nav.css">
+    <link rel="stylesheet" href="../CsForPaseUser/leaderboard.css?v=2">
+</head>
+
+<body>
+    <nav class="header">
+        <div class="header-left">
+            <div class="logo" id="logo">Code Arena</div>
+            <div class="author">by CodeKing</div>
+        </div>
+        <div class="tabs">
+            <a class="nav-link" id="Dashboard">Dashboard</a>
+            <a class="nav-link active" id="leaderboard">Leaderboard</a>
+            <a class="nav-link" id="submit-link">Submissions</a>
+        </div>
+        <div>⏱ <span class="timer" id="countdown">03:00:00</span> | 👤 Team <span id="name-team"></span></div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Bảng Xếp Hạng</h1>
+                <p class="page-subtitle">Live leaderboard - Cập nhật realtime</p>
+            </div>
+        </div>
+
+        <!-- Leaderboard Table -->
+        <div class="leaderboard-container">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>RANK</th>
+                        <th>TEAM</th>
+                        <th>SCORE</th>
+                        <th class="problem-header problem-A">A</th>
+                        <th class="problem-header problem-B">B</th>
+                        <th class="problem-header problem-C">C</th>
+                        <th class="problem-header problem-D">D</th>
+                        <th class="problem-header problem-E">E</th>
+                        <th class="problem-header problem-F">F</th>
+                        <th class="problem-header problem-G">G</th>
+                        <th class="problem-header problem-H">H</th>
+                        <th class="problem-header problem-I">I</th>
+                        <th class="problem-header problem-J">J</th>
+                        <th class="problem-header problem-K">K</th>
+                        <th class="problem-header problem-L">L</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Table rows will be populated by JavaScript -->
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="legend-container">
+            <div class="legend-title">Chú thích</div>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-box solved"></div>
+                    <span>Đã hoàn thành</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box wrong"></div>
+                    <span>Sai</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box none">-</div>
+                    <span>Chưa nộp</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Footer: ICPC-style event info ===== -->
+        <footer class="site-footer">
+            <!-- Top live status bar -->
+            <div class="footer-status">
+                <div class="status-item">📅 <span id="event-date">—</span></div>
+                <div class="status-item">⏱ Thời gian còn lại: <strong id="footer-countdown">03:00:00</strong></div>
+                <div class="status-item">👥 Số đội: <strong id="team-count">—</strong></div>
+                <div class="status-item">📦 Bài: <strong id="problem-count">A–L (12)</strong></div>
+                <div class="status-item">🔄 Cập nhật: <span id="last-updated">—</span></div>
+            </div>
+
+            <!-- Main footer content -->
+            <div class="footer-grid container">
+                <!-- Event / Organizer -->
+                <section class="footer-card">
+                    <h3>Code Arena — ICPC Style</h3>
+                    <p>Cuộc thi nội bộ do <strong>CLB Code Arena</strong> tổ chức, mô phỏng format ICPC: chấm realtime,
+                        penalty
+                        theo số lần nộp, tie-break theo thời gian.</p>
+                    <ul class="meta-list">
+                        <li><span>Đơn vị tổ chức:</span> Code Arena Club</li>
+                        <li><span>Địa điểm:</span> Phòng Lab / Online</li>
+                        <li><span>Hình thức:</span> Team 1–3 người</li>
+                    </ul>
+                </section>
+
+                <!-- Rules / Scoring -->
+                <section class="footer-card">
+                    <h4>Quy định &amp; Tính điểm</h4>
+                    <ul class="rule-list">
+                        <li><strong>Điểm:</strong> 1 điểm cho mỗi bài AC, xếp hạng theo số bài giải được.</li>
+                        <li><strong>Penalty:</strong> +20 phút cho mỗi lần WA trước lần AC đầu tiên.</li>
+                        <li><strong>Thời gian bài:</strong> Thời gian từ lúc bắt đầu đến lần AC đầu tiên.</li>
+                        <li><strong>Tie-break:</strong> Tổng thời gian giải + penalty; nếu còn hòa, so thứ tự AC gần
+                            nhất.</li>
+                        <li><strong>Submissions:</strong> Chỉ chấp nhận source hợp lệ (C/C++/Java/Python) theo quy định.
+                        </li>
+                    </ul>
+                    <a class="footer-link" id="rules-link" href="#" target="_blank" rel="noopener">Xem quy chế chi
+                        tiết</a>
+                </section>
+
+                <!-- System / Conduct -->
+                <section class="footer-card">
+                    <h4>Hệ thống &amp; Ứng xử</h4>
+                    <ul class="rule-list">
+                        <li>Không gian lận, chia sẻ code giữa các đội trong thời gian thi.</li>
+                        <li>Không tấn công hệ thống, spam submit, hay sử dụng tool bị cấm.</li>
+                        <li>Thắc mắc kỹ thuật: liên hệ giám sát phòng/Discord.</li>
+                    </ul>
+                    <div class="badge-row">
+                        <span class="badge ok">Realtime</span>
+                        <span class="badge warn">Anti-cheat</span>
+                        <span class="badge info">ICPC-style</span>
+                    </div>
+                </section>
+
+                <!-- Contact / Help -->
+                <section class="footer-card">
+                    <h4>Hỗ trợ</h4>
+                    <ul class="contact-list">
+                        <li>👨‍💻 Jury/Staff: <a href="#" id="staff-contact">contact@codearena.dev</a></li>
+                        <li>💬 Discord: <a href="#" id="discord-link">discord.gg/codearena</a></li>
+                        <li>📞 Hotline: <a href="tel:+84000000000" id="hotline">+84 0822 817 208</a></li>
+                    </ul>
+                    <div class="sponsor-row">
+                        <span class="sponsor-label">Sponsors:</span>
+                        <div class="sponsor-logos">
+                            <!-- Replace placeholders with real logo <img> -->
+                            <span class="logo-dot"></span>
+                            <span class="logo-dot"></span>
+                            <span class="logo-dot"></span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Bottom note -->
+            <div class="footer-note">
+                © <span id="year-now"></span> Code Arena Club. All rights reserved.
+            </div>
+        </footer>
+
+        <!-- Sync footer countdown with header timer (optional) -->
+        <script>
+            // Fill static bits
+            (function () {
+                const now = new Date();
+                const pad = (n) => n.toString().padStart(2, "0");
+                const dateStr = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()}`;
+                const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+                document.getElementById("event-date").textContent = dateStr;
+                document.getElementById("last-updated").textContent = `${dateStr} ${timeStr}`;
+                document.getElementById("year-now").textContent = now.getFullYear();
+
+                // Mirror main countdown if exists
+                const headerCountdown = document.getElementById("countdown");
+                const footerCountdown = document.getElementById("footer-countdown");
+                if (headerCountdown && footerCountdown) {
+                    const sync = () => (footerCountdown.textContent = headerCountdown.textContent);
+                    sync();
+                    // Try to observe changes every 500ms
+                    setInterval(sync, 500);
+                }
+
+            })();
+        </script>
+    </div>
+
+    <script src="../jsForPageUser/nav.js"></script>
+    <script src="../jsForPageUser/leaderboard.js"></script>
+    <script src="../jsForPageUser/getRealTime.js"></script>
+</body>
+
+</html>
