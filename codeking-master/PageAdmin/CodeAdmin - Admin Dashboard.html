@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAdmin - Admin Dashboard</title>
+    <link rel="stylesheet" href="CodeAdmin - Admin Dashboard.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+            <div class="logo">CodeAdmin</div>
+        </div>
+
+        <div class="header-actions">
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="Search..." onkeyup="handleSearch(this.value)">
+            </div>
+            <div class="user-profile" onclick="toggleUserMenu()">
+                <div class="avatar">A</div>
+                <span>Admin User</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="nav-item active" onclick="switchTab('dashboard', this)">
+            <span class="nav-icon">📊</span>
+            Dashboard
+        </div>
+        <div class="nav-item" onclick="switchTab('problems', this)">
+            <span class="nav-icon">🧩</span>
+            Problems
+        </div>
+        <div class="nav-item" onclick="switchTab('users', this)">
+            <span class="nav-icon">👥</span>
+            Users
+        </div>
+        <div class="nav-item" onclick="switchTab('contests', this)">
+            <span class="nav-icon">🏆</span>
+            Contests
+        </div>
+        <div class="nav-item" onclick="switchTab('submissions', this)">
+            <span class="nav-icon">📝</span>
+            Submissions
+        </div>
+        <div class="nav-item" onclick="switchTab('analytics', this)">
+            <span class="nav-icon">📈</span>
+            Analytics
+        </div>
+        <div class="nav-item" onclick="switchTab('settings', this)">
+            <span class="nav-icon">⚙️</span>
+            Settings
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div id="dashboard-tab" class="tab-content">
+            <div class="page-header">
+                <h1 class="page-title">Dashboard</h1>
+                <p class="page-subtitle">Overview of your platform statistics and recent activity</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Total Users</span>
+                        <div class="stat-icon">👥</div>
+                    </div>
+                    <div class="stat-value">12,847</div>
+                    <div class="stat-change positive">
+                        ↗ +12.5% from last month
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Active Problems</span>
+                        <div class="stat-icon">🧩</div>
+                    </div>
+                    <div class="stat-value">2,156</div>
+                    <div class="stat-change positive">
+                        ↗ +8.2% from last month
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Submissions Today</span>
+                        <div class="stat-icon">📝</div>
+                    </div>
+                    <div class="stat-value">45,293</div>
+                    <div class="stat-change negative">
+                        ↘ -3.1% from yesterday
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-title">Active Contests</span>
+                        <div class="stat-icon">🏆</div>
+                    </div>
+                    <div class="stat-value">8</div>
+                    <div class="stat-change positive">
+                        ↗ +2 from last week
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="chart-container">
+                <div>📊 Interactive Chart Placeholder - Daily Submissions</div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="data-table">
+                <div class="table-header">
+                    <h2 class="table-title">Recent Activity</h2>
+                    <div class="table-actions">
+                        <button class="btn btn-secondary" onclick="refreshData()">
+                            <span class="loading" id="refresh-loading" style="display: none;"></span>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Action</th>
+                            <th>Problem</th>
+                            <th>Status</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activity-table">
+                        <tr>
+                            <td>john_doe</td>
+                            <td>Submitted Solution</td>
+                            <td>Two Sum</td>
+                            <td><span class="status active">Accepted</span></td>
+                            <td>2 min ago</td>
+                        </tr>
+                        <tr>
+                            <td>alice_smith</td>
+                            <td>Started Contest</td>
+                            <td>Weekly Contest 321</td>
+                            <td><span class="status pending">In Progress</span></td>
+                            <td>5 min ago</td>
+                        </tr>
+                        <tr>
+                            <td>bob_johnson</td>
+                            <td>Submitted Solution</td>
+                            <td>Binary Tree Inorder</td>
+                            <td><span class="status inactive">Wrong Answer</span></td>
+                            <td>8 min ago</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="problems-tab" class="tab-content" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">Problems Management</h1>
+                <p class="page-subtitle">Create, edit, and manage coding problems</p>
+            </div>
+
+            <div class="data-table">
+                <div class="table-header">
+                    <h2 class="table-title">All Problems</h2>
+                    <div class="table-actions">
+                        <button class="btn btn-primary" onclick="openProblemModal()">
+                            + Add Problem
+                        </button>
+                        <button class="btn btn-secondary">
+                            Import
+                        </button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Difficulty</th>
+                            <th>Category</th>
+                            <th>Acceptance Rate</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Two Sum</td>
+                            <td><span class="status active">Easy</span></td>
+                            <td>Array, Hash Table</td>
+                            <td>49.2%</td>
+                            <td>
+                                <button class="action-btn edit">Edit</button>
+                                <button class="action-btn delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Add Two Numbers</td>
+                            <td><span class="status pending">Medium</span></td>
+                            <td>Linked List, Math</td>
+                            <td>35.8%</td>
+                            <td>
+                                <button class="action-btn edit">Edit</button>
+                                <button class="action-btn delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Median of Two Sorted Arrays</td>
+                            <td><span class="status inactive">Hard</span></td>
+                            <td>Array, Binary Search</td>
+                            <td>34.1%</td>
+                            <td>
+                                <button class="action-btn edit">Edit</button>
+                                <button class="action-btn delete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="users-tab" class="tab-content" style="display: none;">
+            <div class="page-header">
+                <h1 class="page-title">User Management</h1>
+                <p class="page-subtitle">Manage user accounts and permissions</p>
+            </div>
+
+            <div class="data-table">
+                <div class="table-header">
+                    <h2 class="table-title">All Users</h2>
+                    <div class="table-actions">
+                        <button class="btn btn-primary" onclick="addUser()">
+                            + Add User
+                        </button>
+                        <button class="btn btn-secondary">
+                            Export
+                        </button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Problems Solved</th>
+                            <th>Join Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>john_doe</td>
+                            <td>john@example.com</td>
+                            <td><span class="status active">Active</span></td>
+                            <td>247</td>
+                            <td>Jan 15, 2024</td>
+                            <td>
+                                <button class="action-btn edit">Edit</button>
+                                <button class="action-btn delete">Suspend</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>alice_smith</td>
+                            <td>alice@example.com</td>
+                            <td><span class="status active">Active</span></td>
+                            <td>189</td>
+                            <td>Feb 8, 2024</td>
+                            <td>
+                                <button class="action-btn edit">Edit</button>
+                                <button class="action-btn delete">Suspend</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>bob_johnson</td>
+                            <td>bob@example.com</td>
+                            <td><span class="status inactive">Suspended</span></td>
+                            <td>92</td>
+                            <td>Mar 3, 2024</td>
+                            <td>
+                                <button class="action-btn edit">Edit</button>
+                                <button class="action-btn">Unsuspend</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Problem Form -->
+    <div id="problemModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeProblemModal()">&times;</span>
+            <h2 id="modalTitle">Add Problem</h2>
+            <form id="problemForm">
+                <input type="hidden" id="problemId">
+
+                <label for="title">Title:</label>
+                <input type="text" id="title" required>
+
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" required>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+
+                <label for="category">Category:</label>
+                <input type="text" id="category" required>
+
+                <label for="acceptance">Acceptance Rate (%):</label>
+                <input type="number" id="acceptance" step="0.1" min="0" max="100" required>
+
+                <label for="statement">Problem Statement:</label>
+                <textarea id="statement" rows="4" required></textarea>
+
+                <label for="inputFormat">Input Format:</label>
+                <textarea id="inputFormat" rows="2" required></textarea>
+
+                <label for="outputFormat">Output Format:</label>
+                <textarea id="outputFormat" rows="2" required></textarea>
+
+                <label for="constraints">Constraints:</label>
+                <textarea id="constraints" rows="2" required></textarea>
+
+                <label for="sampleInput">Sample Input:</label>
+                <textarea id="sampleInput" rows="2" required></textarea>
+
+                <label for="sampleOutput">Sample Output:</label>
+                <textarea id="sampleOutput" rows="2" required></textarea>
+
+                <label for="explanation">Explanation:</label>
+                <textarea id="explanation" rows="2"></textarea>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeProblemModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal User Form -->
+    <div id="userModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeUserModal()">&times;</span>
+            <h2 id="userModalTitle">Add User</h2>
+            <form id="userForm">
+                <input type="hidden" id="userId">
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="status">Status:</label>
+                <select id="status" required>
+                    <option value="Active">Active</option>
+                    <option value="Suspended">Suspended</option>
+                </select>
+
+                <label for="solved">Problems Solved:</label>
+                <input type="number" id="solved" min="0" required>
+
+                <label for="joinDate">Join Date:</label>
+                <input type="date" id="joinDate" required>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeUserModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Delete Problem -->
+    <div id="deleteProblemModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <span class="close" onclick="closeDeleteProblemModal()">&times;</span>
+            <h2>Delete Problem</h2>
+            <p>Are you sure you want to delete this problem?</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeDeleteProblemModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="confirmDeleteProblem()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Problem (shared form) -->
+    <div id="editProblemModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditProblemModal()">&times;</span>
+            <h2>Edit Problem</h2>
+            <form id="problemForm">
+                <input type="hidden" id="problemId">
+                <label for="title">Title:</label>
+                <input type="text" id="title" required>
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" required>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+                <label for="category">Category:</label>
+                <input type="text" id="category" required>
+                <label for="acceptance">Acceptance Rate (%):</label>
+                <input type="number" id="acceptance" step="0.1" min="0" max="100" required>
+                <label for="statement">Problem Statement:</label>
+                <textarea id="statement" rows="4" required></textarea>
+                <label for="inputFormat">Input Format:</label>
+                <textarea id="inputFormat" rows="2" required></textarea>
+                <label for="outputFormat">Output Format:</label>
+                <textarea id="outputFormat" rows="2" required></textarea>
+                <label for="constraints">Constraints:</label>
+                <textarea id="constraints" rows="2" required></textarea>
+                <label for="sampleInput">Sample Input:</label>
+                <textarea id="sampleInput" rows="2" required></textarea>
+                <label for="sampleOutput">Sample Output:</label>
+                <textarea id="sampleOutput" rows="2" required></textarea>
+                <label for="explanation">Explanation:</label>
+                <textarea id="explanation" rows="2"></textarea>
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeEditProblemModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Import Problems -->
+    <div id="importProblemModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <span class="close" onclick="closeImportProblemModal()">&times;</span>
+            <h2>Import Problems</h2>
+            <form>
+                <label for="importProblemFile">Upload JSON or CSV File:</label>
+                <input type="file" id="importProblemFile" accept=".json,.csv" />
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeImportProblemModal()">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="importProblems()">Import</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Delete User -->
+    <div id="deleteUserModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <span class="close" onclick="closeDeleteUserModal()">&times;</span>
+            <h2>Delete User</h2>
+            <p>Are you sure you want to delete this user?</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeDeleteUserModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="confirmDeleteUser()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit User (shared form) -->
+    <div id="editUserModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditUserModal()">&times;</span>
+            <h2>Edit User</h2>
+            <form id="userForm">
+                <input type="hidden" id="userId">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="status">Status:</label>
+                <select id="status" required>
+                    <option value="Active">Active</option>
+                    <option value="Suspended">Suspended</option>
+                </select>
+                <label for="solved">Problems Solved:</label>
+                <input type="number" id="solved" min="0" required>
+                <label for="joinDate">Join Date:</label>
+                <input type="date" id="joinDate" required>
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeEditUserModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Import Users -->
+    <div id="importUserModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <span class="close" onclick="closeImportUserModal()">&times;</span>
+            <h2>Import Users</h2>
+            <form>
+                <label for="importUserFile">Upload JSON or CSV File:</label>
+                <input type="file" id="importUserFile" accept=".json,.csv" />
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeImportUserModal()">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="importUsers()">Import</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="CodeAdmin - Admin Dashboard.js"></script>
+</body>
+
+</html>

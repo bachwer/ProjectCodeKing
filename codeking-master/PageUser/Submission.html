@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submission History</title>
+  <link rel="stylesheet" href="../CsForPaseUser/Submission.css" />
+  <link rel="stylesheet" href="../CsForPaseUser/dashboard.css" />
+  <link rel="stylesheet" href="../CsForPaseUser/nav.css" />
+</head>
+
+<body>
+  <nav class="header">
+    <div class="header-left">
+      <div class="logo" id="logo">Code Arena</div>
+      <div class="author">by CodeKing</div>
+    </div>
+    <div class="tabs">
+      <a class="nav-link" id="Dashboard">Dashboard</a>
+      <a class="nav-link" id="leaderboard">Leaderboard</a>
+      <a class="nav-link  active" id="submit-link">Submissions</a>
+    </div>
+    <div>⏱ <span class="timer" id="countdown">03:00:00</span> | 👤 Team <span id="name-team"></span></div>
+  </nav>
+
+  <body>
+    <div class="submission-history">
+      <div class="submission-header">Submission History</div>
+
+      <div class="submissions-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>Language</th>
+              <th>Time</th>
+              <th>Memory</th>
+              <th>Status</th>
+              <th>Submitted</th>
+            </tr>
+          </thead>
+          <tbody id="tableSubmission">
+            <!--     ádadsad-->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="../jsForPageUser/nav.js"></script>
+    <script src="../jsForPageUser/Submission.js"></script>
+    <script src="../jsForPageUser/getRealTime.js"></script>
+  </body>
+</body>
+
+</html>

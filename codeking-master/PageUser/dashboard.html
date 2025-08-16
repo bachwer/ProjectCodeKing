@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Arena - Dashboard</title>
+    <link rel="stylesheet" href="../CsForPaseUser/dashboard.css">
+    <link rel="stylesheet" href="../CsForPaseUser/nav.css">
+    <!-- <script src="https://kit.fontawesome.com/35d7fd4f5c.js" crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+
+    <nav class="header">
+        <div class="header-left">
+            <div class="logo" id="logo">Code Arena</div>
+            <div class="author">by CodeKing</div>
+        </div>
+        <div class="tabs">
+            <a class="nav-link active" id="Dashboard">Dashboard</a>
+            <a class="nav-link" id="leaderboard">Leaderboard</a>
+            <a class="nav-link" id="submit-link">Submissions</a>
+        </div>
+        <div>⏱ <span class="timer" id="countdown"></span> | 👤 Team <span id="name-team"></span></div>
+    </nav>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <div class="section-header">Contest Info</div>
+                <div class="contest-info">
+                    <div class="contest-item" id="contest-title">Tên kỳ thi</div>
+                    <div class="contest-item" id="contest-date"></div>
+                    <div class="contest-item" id="contest-teams">248 Teams</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="section-header">Problem Status</div>
+                <div class="problem-status">
+                    <div class="status-item">
+                        <span class="status-label">Đã làm đúng</span>
+                        <span class="status-count" id="solvedProblems">3</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Số lần nộp</span>
+                        <span class="status-count" id="attemptedCount"></span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Số câu chưa làm được</span>
+                        <span class="status-count" id="unsolved">1</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Điểm</span>
+                        <span class="status-count" id="totalPoints">6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="content-header">
+                <div class="content-title">Contest Problems</div>
+                <div class="content-subtitle">Click on any problem to view details and submit your solution</div>
+            </div>
+
+            <div class="problems-list" id="problemsList">
+
+            </div>
+        </div>
+    </div>
+    <script src="../jsForPageUser/nav.js"></script>
+    <!-- <script src="../jsForPageUser/dataProblems.js"></script> -->
+    <script src="../jsForPageUser/dashboard.js"></script>
+    <script src="../jsForPageUser/getRealTime.js"></script>
+
+</body>
+
+</html>

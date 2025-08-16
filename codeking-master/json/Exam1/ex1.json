@@ -1,0 +1,277 @@
+{
+  "contest": {
+    "id": "Exam1",
+    "contestName": "Cuộc thi Lập trình Mùa xuân 2025",
+    "date": "15 Tháng 1, 2025",
+    "numberOfTeams": 248,
+    "problemStatus": {
+      "solved": 3,
+      "attempted": 2,
+      "wrongAnswer": 1,
+      "unattempted": 6
+    },
+    "problems": [
+      {
+        "id": "A1",
+        "name": "Tính Giai Thừa",
+        "description": "Tính giai thừa của một số nguyên dương",
+        "points": 100
+      },
+      {
+        "id": "B1",
+        "name": "Sắp Xếp Hai Mảng",
+        "description": "Gộp và sắp xếp hai mảng tăng dần",
+        "points": 150
+      },
+      {
+        "id": "C1",
+        "name": "Phương Trình Bậc Hai",
+        "description": "Tìm nghiệm phương trình bậc hai",
+        "points": 200
+      },
+      {
+        "id": "D1",
+        "name": "Đổi Tiền",
+        "description": "Tìm số tờ tiền ít nhất cần dùng để đổi",
+        "points": 200
+      },
+      {
+        "id": "E1",
+        "name": "3 Sum",
+        "description": "Tìm các bộ ba có tổng bằng 0",
+        "points": 300
+      },
+      {
+        "id": "F1",
+        "name": "Sinh Dấu Ngoặc",
+        "description": "Tạo các tổ hợp dấu ngoặc đúng chuẩn",
+        "points": 350
+      },
+      {
+        "id": "G1",
+        "name": "Kiểm tra BST",
+        "description": "Xây dựng cây và kiểm tra BST",
+        "points": 400
+      },
+      {
+        "id": "H1",
+        "name": "Kết Bạn",
+        "description": "Tìm nhóm bạn lớn nhất",
+        "points": 350
+      },
+      {
+        "id": "I1",
+        "name": "Xử Lý Yêu Cầu",
+        "description": "Xử lý yêu cầu theo độ ưu tiên",
+        "points": 250
+      },
+      {
+        "id": "J1",
+        "name": "Tìm Đường Ngắn Nhất",
+        "description": "Tìm đường đi ngắn nhất trên đồ thị",
+        "points": 500
+      },
+      {
+        "id": "K1",
+        "name": "Xếp Đoạn Thẳng",
+        "description": "Tìm số đoạn không chồng lấn lớn nhất",
+        "points": 300
+      },
+      {
+        "id": "L1",
+        "name": "Giả Lập Bàn Phím",
+        "description": "Giả lập chuỗi phím đã gõ",
+        "points": 200
+      }
+    ],
+    "problemDetails": {
+      "A1": {
+        "name": "Tính Giai Thừa",
+        "problemStatement": "Viết một chương trình nhận vào một số nguyên dương n và tính giai thừa của n.",
+        "inputFormat": "Một số nguyên dương n.",
+        "outputFormat": "Ghi ra giá trị giai thừa của n.",
+        "constraints": "0 <= n <= 20",
+        "sampleInput": [
+          "5",
+          "0",
+          "10"
+        ],
+        "sampleOutput": [
+          "120",
+          "1",
+          "3628800"
+        ],
+        "explanation": "Giai thừa của n là tích từ 1 đến n. Ví dụ 5! = 120."
+      },
+      "B1": {
+        "name": "Sắp Xếp Hai Mảng",
+        "problemStatement": "Gộp hai mảng rồi sắp xếp tăng dần.",
+        "inputFormat": "Dòng 1: 2 số nguyên n, k.\nDòng 2: n số nguyên.\nDòng 3: k số nguyên.",
+        "outputFormat": "Một dòng gồm n+k số nguyên đã sắp xếp tăng dần.",
+        "constraints": "1 <= n, k <= 1000",
+        "sampleInput": [
+          "3 4\n2 1 3\n8 7 9 4"
+        ],
+        "sampleOutput": [
+          "1 2 3 4 7 8 9"
+        ],
+        "explanation": "Gộp mảng [2 1 3] và [8 7 9 4] rồi sắp xếp."
+      },
+      "C1": {
+        "name": "Phương Trình Bậc Hai",
+        "problemStatement": "Giải phương trình ax^2 + bx + c = 0.",
+        "inputFormat": "Ba số nguyên a, b, c.",
+        "outputFormat": "Hai nghiệm thực nếu có hoặc 'Invalid'.",
+        "constraints": "-1000 <= a,b,c <= 1000",
+        "sampleInput": [
+          "1 -5 6",
+          "2 -2 3"
+        ],
+        "sampleOutput": [
+          "2 3",
+          "Invalid"
+        ],
+        "explanation": "1 -5 6 có nghiệm 2 và 3, 2 -2 3 vô nghiệm."
+      },
+      "D1": {
+        "name": "Đổi Tiền",
+        "problemStatement": "Đổi số tiền N thành ít tờ nhất với mệnh giá có sẵn.",
+        "inputFormat": "Dòng 1: T là số test.\nT dòng tiếp: mỗi dòng 1 số nguyên N.",
+        "outputFormat": "T dòng, mỗi dòng số tờ tiền ít nhất.",
+        "constraints": "1 <= T <= 50, 1 <= N <= 100000",
+        "sampleInput": [
+          "2\n70\n121"
+        ],
+        "sampleOutput": [
+          "2",
+          "3"
+        ],
+        "explanation": "70 = 50 + 20, 121 = 100 + 20 + 1."
+      },
+      "E1": {
+        "name": "3 Sum",
+        "problemStatement": "Tìm tất cả bộ ba [i,j,k] với nums[i]+nums[j]+nums[k]=0.",
+        "inputFormat": "Một dòng gồm các số nguyên cách nhau bởi dấu cách.",
+        "outputFormat": "Các bộ ba hợp lệ không trùng nhau.",
+        "constraints": "3 <= nums.length <= 3000, -10^5 <= nums[i] <= 10^5",
+        "sampleInput": [
+          "-1 0 1 2 -1 -4",
+          "0 1 1",
+          "0 0 0"
+        ],
+        "sampleOutput": [
+          "[[-1,-1,2],[-1,0,1]]",
+          "[]",
+          "[[0,0,0]]"
+        ],
+        "explanation": "Duyệt tất cả tổ hợp ba số, loại trùng."
+      },
+      "F1": {
+        "name": "Sinh Dấu Ngoặc",
+        "problemStatement": "Sinh tất cả chuỗi dấu ngoặc đúng với n cặp ngoặc.",
+        "inputFormat": "Một số nguyên n.",
+        "outputFormat": "Một danh sách các chuỗi hợp lệ.",
+        "constraints": "1 <= n <= 8",
+        "sampleInput": [
+          "3",
+          "1"
+        ],
+        "sampleOutput": [
+          "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]",
+          "[\"()\"]"
+        ],
+        "explanation": "Dùng đệ quy sinh dãy hợp lệ với số lượng ngoặc trái/phải hợp lý."
+      },
+      "G1": {
+        "name": "Kiểm tra BST",
+        "problemStatement": "Kiểm tra cây có phải BST hay không.",
+        "inputFormat": "Dòng 1: N.\nN dòng tiếp: cha con L/R.",
+        "outputFormat": "'true' nếu là BST, ngược lại 'false'.",
+        "constraints": "1 <= N <= 1000",
+        "sampleInput": [
+          "6\n10 5 L\n10 15 R\n5 3 L\n5 7 R\n15 12 L\n15 18 R",
+          "2\n10 15 L\n10 5 R"
+        ],
+        "sampleOutput": [
+          "true",
+          "false"
+        ],
+        "explanation": "Kiểm tra điều kiện cây con trái < cha < phải."
+      },
+      "H1": {
+        "name": "Kết Bạn",
+        "problemStatement": "Tìm số lượng sinh viên nhiều nhất trong một nhóm bạn.",
+        "inputFormat": "Dòng 1: T.\nMỗi test: N M\nTiếp M dòng: u v là bạn.",
+        "outputFormat": "T dòng kết quả cho mỗi test.",
+        "constraints": "T <= 20, N, M <= 10^5",
+        "sampleInput": [
+          "2\n3 2\n1 2\n2 3\n10 12\n1 2\n3 1\n3 4\n5 4\n3 5\n4 6\n5 2\n2 1\n7 1\n1 2\n9 10\n8 9"
+        ],
+        "sampleOutput": [
+          "3",
+          "7"
+        ],
+        "explanation": "Dùng BFS hoặc Union-Find để gom nhóm."
+      },
+      "I1": {
+        "name": "Xử Lý Yêu Cầu",
+        "problemStatement": "Xử lý yêu cầu 'high' trước 'low' nhưng theo thứ tự đến.",
+        "inputFormat": "Dòng 1: N\nDòng 2: N chuỗi 'high' hoặc 'low'",
+        "outputFormat": "Dòng gồm N số chỉ thứ tự xử lý.",
+        "constraints": "1 <= N <= 10^5",
+        "sampleInput": [
+          "5\nlow high low high low",
+          "3\nhigh high low"
+        ],
+        "sampleOutput": [
+          "2 4 1 3 5",
+          "1 2 3"
+        ],
+        "explanation": "Duyệt tách thành 2 queue theo loại ưu tiên."
+      },
+      "J1": {
+        "name": "Tìm Đường Ngắn Nhất",
+        "problemStatement": "Tìm số đoạn đường ngắn nhất từ A đến B.",
+        "inputFormat": "T dòng test. Mỗi test: N M Q\nM dòng cạnh u v\nQ dòng truy vấn A B.",
+        "outputFormat": "Q dòng với kết quả từng truy vấn.",
+        "constraints": "1 <= T <= 20, N <= 100000, M <= 200000, Q <= 1000",
+        "sampleInput": [
+          "1\n4 3 2\n1 2\n2 3\n3 4\n1 4\n4 1"
+        ],
+        "sampleOutput": [
+          "3",
+          "3"
+        ],
+        "explanation": "Dùng BFS để tìm đường ngắn nhất không trọng số."
+      },
+      "K1": {
+        "name": "Xếp Đoạn Thẳng",
+        "problemStatement": "Chọn nhiều nhất các đoạn không chồng lấn.",
+        "inputFormat": "T test. Mỗi test: N\nN dòng: mỗi dòng 2 số đầu cuối đoạn.",
+        "outputFormat": "T dòng, mỗi dòng là số đoạn chọn được.",
+        "constraints": "N <= 10^5, T <= 10",
+        "sampleInput": [
+          "1\n10\n39 55\n37 74\n0 1\n19 25\n65 76\n51 52\n19 21\n5 94\n46 65\n32 40"
+        ],
+        "sampleOutput": [
+          "5"
+        ],
+        "explanation": "Sắp xếp theo điểm kết thúc, dùng greedy."
+      },
+      "L1": {
+        "name": "Giả Lập Bàn Phím",
+        "problemStatement": "Giả lập thao tác gõ văn bản với các phím điều hướng và xóa.",
+        "inputFormat": "Một dòng chuỗi thao tác.",
+        "outputFormat": "Kết quả sau khi xử lý xong tất cả thao tác.",
+        "constraints": "Chuỗi dài không quá 10^6 ký tự.",
+        "sampleInput": [
+          "<<PI<T>>Ta-"
+        ],
+        "sampleOutput": [
+          "PTIT"
+        ],
+        "explanation": "Dùng 2 stack hoặc deque để mô phỏng việc chèn/xóa/kéo con trỏ."
+      }
+    }
+  }
+}
